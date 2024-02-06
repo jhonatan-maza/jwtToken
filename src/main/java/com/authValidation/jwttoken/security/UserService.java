@@ -4,7 +4,7 @@ package com.authValidation.jwttoken.security;
 import com.authValidation.jwttoken.exception.JwtException;
 import com.authValidation.jwttoken.model.entity.Role;
 import com.authValidation.jwttoken.model.entity.User;
-import com.authValidation.jwttoken.reposatory.UserRepository;
+import com.authValidation.jwttoken.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;

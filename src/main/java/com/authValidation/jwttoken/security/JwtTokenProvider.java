@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
 import com.authValidation.jwttoken.model.entity.TokenDetails;
-import com.authValidation.jwttoken.reposatory.JwtTokenRepository;
+import com.authValidation.jwttoken.repository.JwtTokenRepository;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
