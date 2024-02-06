@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static com.authValidation.jwttoken.util.utilitario.contrasenaSegura;
+import static com.authValidation.jwttoken.util.utilitario.emailValidator;
+
 
 @Controller
 @RequestMapping("/api")
@@ -93,6 +96,12 @@ public class UserController {
 		if (userExists != null) {
 			return new ResponseEntity<ResponseBean>(new ResponseBean("Email id already existed", 200, user) ,HttpStatus.OK);
 		}
+        if (!emailValidator(user.getEmail())) {
+            return new ResponseEntity<ResponseBean>(new ResponseBean("The email address " + user.getEmail() + " is invalid", 200, user) ,HttpStatus.OK);
+        }
+        if (!contrasenaSegura(user.getPassword())) {
+            return new ResponseEntity<ResponseBean>(new ResponseBean("Password is incorrect", 200, user) ,HttpStatus.OK);
+        }
         user.setCreationDate(new Date());
         user.setUpdateDate(new Date());
         user.setActive(true);
